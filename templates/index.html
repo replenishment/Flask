@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YY Prediction</title>
+</head>
+<body>
+    <h1>YY Prediction</h1>
+    <form action="/" method="post">
+        <label for="subgroup">SubGroup:</label>
+        <select id="subgroup" name="subgroup">
+            <option value="0">CSTSingle_Cuff</option>
+            <option value="1">CSTDouble_Cuff</option>
+            <option value="2">PAUD</option>
+            <option value="3">BBRStripe</option>
+            <option value="4">BBRSolid</option>
+            <option value="5">BBRCheck</option>
+            <option value="6">DILD</option>
+            <option value="7">DILDC</option>
+            <option value="8">CSTPocket</option>
+            <option value="9">Others</option>
+            <option value="10">BBRS</option>
+            <option value="11">DILS</option>
+            <option value="12">PAUS</option>
+        </select><br>
+		<label for="solid">Pattern_Solid:</label>
+		<input type="radio" id="solid" name="pattern" value="1" checked><br>
+		<label for="stripe">Pattern_Stripe:</label>
+		<input type="radio" id="stripe" name="pattern" value="2"><br>
+		<label for="check">Pattern_Check:</label>
+		<input type="radio" id="check" name="pattern" value="3"><br>
+		<label for="owm">One_Way_Match:</label>
+		<input type="radio" id="owm" name="match_type" value="1" checked><br>
+		<label for="twm">Two_Way_Match:</label>
+		<input type="radio" id="twm" name="match_type" value="2"><br>
+		<label for="ls">Long_Sleeve:</label>
+        <input type="checkbox" id="ls" name="ls" value="1"><br>
+        <label for="pcq">Plan_Cut_Qty:</label>
+        <input type="number" id="pcq" name="pcq" value="500"><br>
+        <label for="rx">Repeat_X:</label>
+        <input type="number" id="rx" name="rx" value="0"><br>
+        <label for="ry">Repeat_Y:</label>
+        <input type="number" id="ry" name="ry" value="0"><br>
+        <label for="ans">Average_Neck_Size:</label>
+        <input type="number" id="ans" name="ans" value="33"><br>
+        <label for="dc">Double_Cuff:</label>
+        <input type="checkbox" id="dc" name="dc" value="1"><br>
+        <label for="mw">Marker_Width:</label>
+        <input type="number" id="mw" name="mw" value="56"><br>
+		<label for="cf">Regular_Fit:</label>
+		<input type="radio" id="cf" name="fit_type" value="1" checked><br>
+		<label for="sf">Slim_Fit:</label>
+		<input type="radio" id="sf" name="fit_type" value="2"><br>
+		<label for="esf">Extra_Slim_Fit:</label>
+		<input type="radio" id="esf" name="fit_type" value="3"><br>
+		<input type="submit" value="Submit">
+    </form>
+	
+	<h1>Result</h1>
+    <p>The predicted YY value is: <span id="predicted_yy"></span></p>
+    <a href="/"><button>Go Back</button></a>
+    <script>
+        // Get the predicted YY value from the query string parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var predictedYY = "{{ predicted_yy}}";
+        
+        // Update the result element with the predicted YY value
+        document.getElementById('predicted_yy').textContent = predictedYY;
+    </script>
+	
+</body>
+</html>
